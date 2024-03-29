@@ -1,0 +1,8 @@
+train: data/colon/train/images
+val: data/colon/val/images
+
+# number of classes
+nc: 2
+
+# class names
+names: ['cancer', 'health']

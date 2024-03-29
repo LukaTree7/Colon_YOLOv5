@@ -326,9 +326,9 @@ def run(
     # Save JSON
     if save_json and len(jdict):
         w = Path(weights[0] if isinstance(weights, list) else weights).stem if weights is not None else ""  # weights
-        anno_json = str(Path("../datasets/coco/annotations/instances_val2017.json"))  # annotations
+        anno_json = str(Path("../datasets/coco/Annotations/instances_val2017.json"))  # Annotations
         if not os.path.exists(anno_json):
-            anno_json = os.path.join(data["path"], "annotations", "instances_val2017.json")
+            anno_json = os.path.join(data["path"], "Annotations", "instances_val2017.json")
         pred_json = str(save_dir / f"{w}_predictions.json")  # predictions
         LOGGER.info(f"\nEvaluating pycocotools mAP... saving {pred_json}...")
         with open(pred_json, "w") as f:
@@ -339,7 +339,7 @@ def run(
             from pycocotools.coco import COCO
             from pycocotools.cocoeval import COCOeval
 
-            anno = COCO(anno_json)  # init annotations api
+            anno = COCO(anno_json)  # init Annotations api
             pred = anno.loadRes(pred_json)  # init predictions api
             eval = COCOeval(anno, pred, "bbox")
             if is_coco:

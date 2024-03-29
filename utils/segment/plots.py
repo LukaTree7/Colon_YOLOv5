@@ -15,7 +15,7 @@ from ..plots import Annotator, colors
 
 @threaded
 def plot_images_and_masks(images, targets, masks, paths=None, fname="images.jpg", names=None):
-    """Plots a grid of images, their labels, and masks with optional resizing and annotations, saving to fname."""
+    """Plots a grid of images, their labels, and masks with optional resizing and Annotations, saving to fname."""
     if isinstance(images, torch.Tensor):
         images = images.cpu().float().numpy()
     if isinstance(targets, torch.Tensor):
